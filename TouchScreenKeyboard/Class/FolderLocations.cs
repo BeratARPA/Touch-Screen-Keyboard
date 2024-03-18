@@ -5,25 +5,25 @@ using System.Security.Principal;
 
 namespace TouchScreenKeyboard.Class
 {
-    public static class Belgeler
+    public class FolderLocations
     {
         public static string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public static string iscFolderPath = Path.Combine(documentsPath, "ISC");
-        public static string isPOSFolderPath = Path.Combine(iscFolderPath, "IsPOS");
-        public static string databaseBackupsFolderPath = Path.Combine(isPOSFolderPath, "Database Backups");
+        public static string posFolderPath = Path.Combine(documentsPath, "POS");
+        public static string barcodePOSFolderPath = Path.Combine(posFolderPath, "BarcodePOS");
+        public static string databaseBackupsFolderPath = Path.Combine(barcodePOSFolderPath, "Database Backups");
 
-        public static void KlasorleriOlustur()
+        public static void CreateFolders()
         {
-            if (!Directory.Exists(iscFolderPath))
+            if (!Directory.Exists(posFolderPath))
             {
-                Directory.CreateDirectory(iscFolderPath);
-                GrantAccess(iscFolderPath);
+                Directory.CreateDirectory(posFolderPath);
+                GrantAccess(posFolderPath);
             }
 
-            if (!Directory.Exists(isPOSFolderPath))
+            if (!Directory.Exists(barcodePOSFolderPath))
             {
-                Directory.CreateDirectory(isPOSFolderPath);
-                GrantAccess(isPOSFolderPath);
+                Directory.CreateDirectory(barcodePOSFolderPath);
+                GrantAccess(barcodePOSFolderPath);
             }
 
             if (!Directory.Exists(databaseBackupsFolderPath))
@@ -33,7 +33,7 @@ namespace TouchScreenKeyboard.Class
             }
         }
 
-        private static void GrantAccess(string path)
+        public static void GrantAccess(string path)
         {
             if (!Directory.Exists(path))
             {

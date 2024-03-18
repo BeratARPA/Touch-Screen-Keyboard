@@ -19,18 +19,18 @@ namespace TouchScreenKeyboard
         {
             InitializeComponent();
 
-            Belgeler.KlasorleriOlustur();
+            FolderLocations.CreateFolders();
 
             DefaultSettings.Write();
 
             this.ResizeBegin += (s, e) => { this.Opacity = 0.50; splitContainer.Visible = false; this.SuspendLayout(); };
-            this.ResizeEnd += (s, e) => { string read = iniFile.Read("Şeffaflık", "Ayarlar").ToString(); this.Opacity = Convert.ToDouble(read.Replace('.', ',')); ; splitContainer.Visible = true; this.ResumeLayout(true); Helpers.ButtonFontResize(this); };
+            this.ResizeEnd += (s, e) => { string read = iniFile.Read("Transparency", "Settings").ToString(); this.Opacity = Convert.ToDouble(read.Replace('.', ',')); ; splitContainer.Visible = true; this.ResumeLayout(true); Helpers.ButtonFontResize(this); };
 
             Helpers.FormPosition(this);
             Helpers.ButtonFontResize(this);
         }
 
-        IniFile iniFile = new IniFile(Belgeler.isPOSFolderPath + "\\Ayarlar.ini");
+        IniFile iniFile = new IniFile(FolderLocations.barcodePOSFolderPath + "\\KeyboardSettings.ini");
         bool capslock = false, shift = false;
 
         protected override CreateParams CreateParams

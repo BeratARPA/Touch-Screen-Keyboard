@@ -14,7 +14,7 @@ namespace TouchScreenKeyboard
             this.splitContainer = splitContainer;
         }
 
-        IniFile iniFile = new IniFile(Belgeler.isPOSFolderPath + "\\Ayarlar.ini");
+        IniFile iniFile = new IniFile(FolderLocations.barcodePOSFolderPath + "\\KeyboardSettings.ini");
         Form form;
         SplitContainer splitContainer;
 
@@ -36,31 +36,31 @@ namespace TouchScreenKeyboard
         #region AyarlarıYükle
         public void AyarlarıYukle()
         {
-            if (iniFile.KeyExists("Şeffaflık", "Ayarlar"))
+            if (iniFile.KeyExists("Transparency", "Settings"))
             {
-                string read = iniFile.Read("Şeffaflık", "Ayarlar").ToString();
+                string read = iniFile.Read("Transparency", "Settings").ToString();
                 double seffaflık = Convert.ToDouble(read.Replace('.', ',')) * 100;
                 tbar_seffaflık.Value = Convert.ToInt32(seffaflık);
             }
 
-            if (iniFile.KeyExists("Sürükleme", "Ayarlar"))
+            if (iniFile.KeyExists("Drag", "Settings"))
             {
-                cBox_surukleme.Checked = Convert.ToBoolean(iniFile.Read("Sürükleme", "Ayarlar"));
+                cBox_surukleme.Checked = Convert.ToBoolean(iniFile.Read("Drag", "Settings"));
                 Surukleme();
             }
 
-            if (iniFile.KeyExists("Boyutlandırma", "Ayarlar"))
+            if (iniFile.KeyExists("Sizing", "Settings"))
             {
                 if (cBox_surukleme.Checked)
                 {
-                    cBox_boyutlandırma.Checked = Convert.ToBoolean(iniFile.Read("Boyutlandırma", "Ayarlar"));
+                    cBox_boyutlandırma.Checked = Convert.ToBoolean(iniFile.Read("Sizing", "Settings"));
                     Boyutlandırma();
                 }
             }
 
-            if (iniFile.KeyExists("Renk", "Ayarlar"))
+            if (iniFile.KeyExists("Theme", "Settings"))
             {
-                lBox_renkler.SelectedIndex = Convert.ToInt32(iniFile.Read("Renk", "Ayarlar"));
+                lBox_renkler.SelectedIndex = Convert.ToInt32(iniFile.Read("Theme", "Settings"));
                 Renkler();
             }
         }
@@ -70,7 +70,7 @@ namespace TouchScreenKeyboard
         private void tbar_seffaflık_ValueChanged(object sender, EventArgs e)
         {
             form.Opacity = ((double)(tbar_seffaflık.Value) / 100.0);
-            iniFile.Write("Şeffaflık", form.Opacity.ToString().Replace(',', '.'), "Ayarlar");
+            iniFile.Write("Transparency", form.Opacity.ToString().Replace(',', '.'), "Settings");
         }
         #endregion
 
@@ -107,7 +107,7 @@ namespace TouchScreenKeyboard
         {
             Surukleme();
 
-            iniFile.Write("Sürükleme", cBox_surukleme.Checked.ToString(), "Ayarlar");
+            iniFile.Write("Drag", cBox_surukleme.Checked.ToString(), "Settings");
         }
         #endregion
 
@@ -128,7 +128,7 @@ namespace TouchScreenKeyboard
         {
             Boyutlandırma();
 
-            iniFile.Write("Boyutlandırma", cBox_boyutlandırma.Checked.ToString(), "Ayarlar");
+            iniFile.Write("Sizing", cBox_boyutlandırma.Checked.ToString(), "Settings");
         }
         #endregion
 
@@ -145,7 +145,7 @@ namespace TouchScreenKeyboard
         {
             Renkler();
 
-            iniFile.Write("Renk", lBox_renkler.SelectedIndex.ToString(), "Ayarlar");
+            iniFile.Write("Theme", lBox_renkler.SelectedIndex.ToString(), "Settings");
         }
         #endregion
 

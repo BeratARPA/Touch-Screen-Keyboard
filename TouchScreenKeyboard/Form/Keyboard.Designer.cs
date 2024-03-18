@@ -1637,10 +1637,10 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(255)), true);
             this.btn_close.ForeColor = System.Drawing.Color.White;
-            this.btn_close.Location = new System.Drawing.Point(1069, 1);
-            this.btn_close.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_close.Location = new System.Drawing.Point(1068, 0);
+            this.btn_close.Margin = new System.Windows.Forms.Padding(0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(34, 34);
+            this.btn_close.Size = new System.Drawing.Size(36, 36);
             this.btn_close.TabIndex = 0;
             this.btn_close.Tag = "";
             this.btn_close.Text = "X";
@@ -1658,7 +1658,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "Keyboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "ISC Touch Screen Keyboard";
+            this.Text = "Touch Screen Keyboard";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Keyboard_Load);
             this.Resize += new System.EventHandler(this.Keyboard_Resize);

@@ -7,7 +7,7 @@
     <ProjectGuid>{5526B7B3-80BF-45A4-B75B-6F8A7A289909}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TouchScreenKeyboard</RootNamespace>
-    <AssemblyName>ISC Touch Screen Keyboard</AssemblyName>
+    <AssemblyName>Touch Screen Keyboard</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>NewIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Belgeler.cs" />
+    <Compile Include="Class\FolderLocations.cs" />
     <Compile Include="Class\DefaultSettings.cs" />
     <Compile Include="Class\Helpers.cs" />
     <Compile Include="Class\IniFile.cs" />
@@ -98,7 +98,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon.ico" />
+    <Content Include="NewIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
